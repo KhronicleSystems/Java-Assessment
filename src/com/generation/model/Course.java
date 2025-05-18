@@ -10,7 +10,6 @@ public class Course
 
     private final Module module;
 
-
     public Course( String code, String name, int credits, Module module )
     {
         this.code = code;
@@ -42,7 +41,11 @@ public class Course
     @Override
     public String toString()
     {
-        return "Course{" + "code='" + code + '\'' + ", name='" + name + '\'' + ", credits=" + credits + ", module="
-            + module + '}';
+        return "Course{" +
+                "code='" + getCode() + '\'' +
+                ", name='" + getName() + '\'' +
+                ", credits=" + getCredits() +
+                ", module=" + (getModule() != null ? getModule().getName() : "None") +
+                '}';
     }
 }
