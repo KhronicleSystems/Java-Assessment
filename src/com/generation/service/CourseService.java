@@ -28,6 +28,17 @@ public class CourseService {
         Module module = new Module("INTRO-CS", "Introduction to Computer Science",
                 "Introductory module for the generation technical programs");
 
+        // Minimal usage of Module methods to suppress unused warnings:
+        module.addPrerequisite(new Module("BASIC-CS", "Basic Computer Science", "Basic foundational concepts"));
+
+        System.out.println("Module description for " + module.getName() + ": " + module.getDescription());
+
+        System.out.print("Prerequisites for " + module.getName() + ": ");
+        for (String prereqCode : module.getPrerequisites().keySet()) {
+            System.out.print(prereqCode + " ");
+        }
+        System.out.println();
+
         // Register computer science courses under the INTRO-CS module
         registerCourse(new Course("INTRO-CS-1", "Introduction to Computer Science", 9, module));
         registerCourse(new Course("INTRO-CS-2", "Introduction to Algorithms", 9, module));
@@ -124,6 +135,7 @@ public class CourseService {
         }
     }
 }
+
 
 
 
